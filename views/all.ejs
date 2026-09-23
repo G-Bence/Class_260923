@@ -22,10 +22,19 @@
     <h2>Total Expenses: <%= totalAmount %> Ft</h2>
     <br>
     <h3>Expenses:</h3>
-    <ul>
+    <table style="width: 350px; border-collapse: collapse;">
+        <tr style="background-color: #f2f2f2;">
+            <th>Name</th>
+            <th>Amount</th>
+            <th>Category</th>
+        </tr>
         <% allExpenses.forEach(expense => { %>
-            <li><%= expense.name %>: <%= expense.amount %> (Category: <%= expense.category %>)</li>
+            <tr style="background-color: <%= colorCodes[expense.category] %>;">
+                <td><%= expense.name %></td>
+                <td><%= expense.amount %> Ft</td>
+                <td><%= expense.category %></td>
+            </tr>
         <% }); %>
-    </ul>
+    </table>
 </body>
 </html>

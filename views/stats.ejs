@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/all">All Expenses</a>
+        <a href="/top3">Top 3 Expenses</a>
+        <a href="/search">Search Expenses</a>
+        <a href="/expensive">Filter by Amount</a>
+        <a href="/stats">Stats</a>
+    </nav>
+    <h1>Expense Tracker</h1>
+    <br>
+    <h2>Statistics</h2>
+    <br>
+    <p>Total Expenses: <%= totalAmount %> Ft</p>
+    <p>Average Expense: <%= averageAmount %> Ft</p>
+    <br>
+    <h3>Expenses by Category:</h3>
+    <table style="width: 350px; border-collapse: collapse;">
+        <tr style="background-color: #f2f2f2;">
+            <th>Category</th>
+            <th>Amount</th>
+            <th>Total</th>
+            <th>Average</th>
+        </tr>
+        <%if (byCategory.length === 0) { %>
+            <tr>
+                <td colspan="3">No expenses found.</td>
+            </tr>
+
+        <% } else { %>
+            <% for (const [category, data] of Object.entries(byCategory)) { %>
+                <tr>
+                    <td><%= category %></td>
+                    <td><%= data.count %></td>
+                    <td><%= data.total %> Ft</td>
+                    <td><%= (data.total / data.count).toFixed(2) %> Ft</td>
+                </tr>
+            <% } %>
+        <% } %>
+    </table>
+</body>
+</html>

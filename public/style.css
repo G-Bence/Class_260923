@@ -3,3 +3,11 @@ body {
     color:rgb(58, 46, 135);
 }
 
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content:left;
+    align-items: center;
+    gap: 30px;
+    padding: 10px;
+}
